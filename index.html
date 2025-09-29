@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Camino como Servidor - Infografía</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Nunito:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .infografia {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        /* BARRA SUPERIOR */
+        .top-bar {
+            background: linear-gradient(135deg, #003DA5 0%, #0056b3 100%);
+            padding: 12px 0;
+            text-align: center;
+        }
+        
+        .top-bar p {
+            color: white;
+            font-weight: 700;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* ENCABEZADO PRINCIPAL */
+        .header-main {
+            background: linear-gradient(135deg, #1a1a1a 0%, #003DA5 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-main::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-info-columns {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .header-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .info-card {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px);
+            padding: 18px 20px;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+            margin-bottom: 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.18);
+        }
+        
+        .info-card .label {
+            color: #FFD700;
+            font-weight: 800;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+        
+        .info-card .value {
+            color: white;
+            font-weight: 700;
+            font-size: 1em;
+            line-height: 1.4;
+        }
+        
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(135deg, #003DA5 0%, #0056b3 100%);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,215,0,0.1) 0%, transparent 50%);
+        }
+        
+        .hero-section h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.2em;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4em;
+            color: #FFD700;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-section {
+            padding: 50px 40px;
+            background: #f8f9fa;
+        }
+        
+        .section-block {
+            margin-bottom: 45px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 22px 30px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-left: 6px solid #FFD700;
+        }
+        
+        .section-icon {
+            font-size: 3em;
+            margin-right: 20px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            font-size: 2em;
+            font-weight: 800;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .pillar-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            border-top: 5px solid #003DA5;
+            border-bottom: 3px solid #FFD700;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,61,165,0.25);
+        }
+        
+        .pillar-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .pillar-card h3 {
+            color: #003DA5;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5em;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .pillar-card p {
+            color: #444;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .teaching-box {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid #FFD700;
+        }
+        
+        .teaching-box h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #FFD700;
+            font-size: 2em;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .teaching-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .teaching-item {
+            background: rgba(255,255,255,0.1);
+            padding: 22px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+        
+        .teaching-item:hover {
+            transform: translateX(8px);
+            background: rgba(255,255,255,0.15);
+            border-color: #FFD700;
+        }
+        
+        .teaching-item strong {
+            color: #FFD700;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+        
+        .teaching-item p {
+            color: white;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .uniminuto-section {
+            background: linear-gradient(135deg, #003DA5 0%, #0056b3 100%);
+            padding: 45px;
+            border-radius: 15px;
+            color: white;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,61,165,0.3);
+            border: 3px solid #FFD700;
+        }
+        
+        .uniminuto-logo {
+            background: white;
+            color: #003DA5;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 0.9em;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border: 3px solid #FFD700;
+        }
+        
+        .uniminuto-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2em;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #FFD700;
+        }
+        
+        .uniminuto-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .uniminuto-item {
+            background: rgba(255,255,255,0.12);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #FFD700;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+        
+        .uniminuto-item:hover {
+            transform: translateX(8px);
+            background: rgba(255,255,255,0.18);
+        }
+        
+        .uniminuto-item h4 {
+            color: #FFD700;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+        
+        .uniminuto-item p {
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .future-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            padding: 45px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            border: 3px solid #FFD700;
+        }
+        
+        .future-box h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #FFD700;
+            font-size: 2.2em;
+            font-weight: 900;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .future-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .future-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-top: 4px solid #003DA5;
+            transition: all 0.3s;
+        }
+        
+        .future-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+        }
+        
+        .future-card h4 {
+            color: #003DA5;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5em;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .future-card p {
+            color: #444;
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+        
+        .references {
+            background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+            border-left: 8px solid #003DA5;
+            box-shadow: 0 6px 20px rgba(0,61,165,0.15);
+        }
+        
+        .references h3 {
+            color: #003DA5;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.7em;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+        
+        .references p {
+            color: #333;
+            line-height: 1.9;
+            margin-bottom: 12px;
+            font-size: 0.92em;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .references p::before {
+            content: '📚';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #003DA5 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 1em;
+        }
+        
+        .footer p {
+            margin: 8px 0;
+            font-weight: 700;
+        }
+        
+        .footer p:first-child {
+            font-size: 1.2em;
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                text-align: center;
+            }
+            
+            .header-info-columns {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .header-info-col {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .pillars-grid,
+            .teaching-items,
+            .uniminuto-grid,
+            .future-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infografia">
+        
+        <!-- BARRA SUPERIOR -->
+        <div class="top-bar">
+            <p>INFOGRAFÍA ACADÉMICA - CÁTEDRA MINUTO DE DIOS</p>
+        </div>
+        
+        <!-- ENCABEZADO PRINCIPAL -->
+        <div class="header-main">
+            <div class="header-content">
+                <!-- ORGANIZACIÓN EN DOS COLUMNAS -->
+                <div class="header-info-columns">
+                    <div class="header-info-col">
+                        <div class="info-card">
+                            <div class="label">📝 Título</div>
+                            <div class="value">Mi Camino como Servidor</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="label">👨‍🎓 Estudiante</div>
+                            <div class="value">Johan Esteban Duque Carvajal</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="label">📚 Materia</div>
+                            <div class="value">Cátedra Minuto de Dios</div>
+                        </div>
+                    </div>
+                    <div class="header-info-col">
+                        <div class="info-card">
+                            <div class="label">🗓️ Semana</div>
+                            <div class="value">Semana 4</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="label">👨‍🏫 Profesor</div>
+                            <div class="value">Francisco René Rodríguez Farias</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="label">📅 Fecha</div>
+                            <div class="value">28 de Septiembre, 2025</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN HERO -->
+        <div class="hero-section">
+            <h1>Mi Camino como Servidor</h1>
+            <p class="hero-subtitle">Forjando el Futuro desde el Servicio y la Responsabilidad</p>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <div class="content-section">
+            
+            <!-- Los pilares de mi formación -->
+            <div class="section-block">
+                <div class="section-header">
+                    <span class="section-icon">👨‍👩‍👦</span>
+                    <h2>Los Pilares que me Han Formado</h2>
+                </div>
+                
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <span class="pillar-icon">💼</span>
+                        <h3>Mi Trabajo</h3>
+                        <p>Cada día de esfuerzo me enseña el valor de la responsabilidad y el compromiso. Trabajar me ha mostrado que servir bien es entregar lo mejor de mí en cada tarea.</p>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <span class="pillar-icon">👶</span>
+                        <h3>Mi Hijo</h3>
+                        <p>Mi mayor motivación para ser mejor persona. Él me impulsa a crecer, a estudiar, a luchar por un futuro digno y a ser ejemplo de perseverancia y servicio.</p>
+                    </div>
+                    
+                    <div class="pillar-card">
+                        <span class="pillar-icon">❤️</span>
+                        <h3>Mi Madre</h3>
+                        <p>Su amor incondicional y sacrificio me enseñaron que servir es entregarse por los demás. Es mi inspiración de fortaleza y dedicación sin límites.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enseñanzas de mis referentes -->
+            <div class="section-block">
+                <div class="section-header">
+                    <span class="section-icon">⭐</span>
+                    <h2>Lecciones que Guían mi Camino</h2>
+                </div>
+                
+                <div class="teaching-box">
+                    <h3>Lo que he aprendido de quienes me inspiran</h3>
+                    <div class="teaching-items">
+                        <div class="teaching-item">
+                            <strong>🏆 Del Trabajo:</strong>
+                            <p>La constancia construye carácter. Cada desafío superado me prepara para servir mejor a otros en mi profesión.</p>
+                        </div>
+                        <div class="teaching-item">
+                            <strong>💪 De mi Hijo:</strong>
+                            <p>El amor verdadero impulsa a dar más allá de nuestros límites. Sirvo pensando en construir un mundo mejor para su generación.</p>
+                        </div>
+                        <div class="teaching-item">
+                            <strong>🌹 De mi Madre:</strong>
+                            <p>El servicio genuino nace del corazón. Su ejemplo me enseñó que ayudar a otros es la forma más noble de vivir.</p>
+                        </div>
+                        <div class="teaching-item">
+                            <strong>🎯 Visión Compartida:</strong>
+                            <p>Todos ellos comparten el perfil de servidores: personas que se entregan, luchan y construyen pensando en el bienestar de sus seres queridos y comunidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uniminuto y mi formación -->
+            <div class="section-block">
+                <div class="uniminuto-section">
+                    <div class="uniminuto-logo">
+                        CORPORACIÓN UNIVERSITARIA<br>MINUTO DE DIOS
+                    </div>
+                    <h3>Uniminuto: Herramientas para Servir Mejor</h3>
+                    
+                    <div class="uniminuto-grid">
+                        <div class="uniminuto-item">
+                            <h4>🚪 Acceso a la Educación</h4>
+                            <p>Me ha brindado la oportunidad de estudiar Ingeniería de Sistemas, abriendo puertas que parecían cerradas por mi situación económica.</p>
+                        </div>
+                        <div class="uniminuto-item">
+                            <h4>🌍 Visión Social</h4>
+                            <p>Me enseña que la tecnología debe resolver problemas reales de la comunidad, no solo generar ganancias personales.</p>
+                        </div>
+                        <div class="uniminuto-item">
+                            <h4>🤝 Educación Praxeológica</h4>
+                            <p>Aprendo haciendo, reflexionando sobre mi práctica y buscando siempre el impacto social positivo de mi profesión.</p>
+                        </div>
+                        <div class="uniminuto-item">
+                            <h4>💡 Formación Integral</h4>
+                            <p>No solo me capacita técnicamente, sino que forma mi carácter ético y mi compromiso con los más vulnerables.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mi futuro como servidor -->
+            <div class="section-block">
+                <div class="section-header">
+                    <span class="section-icon">🚀</span>
+                    <h2>Mi Compromiso con el Futuro</h2>
+                </div>
+                
+                <div class="future-box">
+                    <h3>Cómo viviré la Cultura del Cuidado en mi Profesión</h3>
+                    
+                    <div class="future-content">
+                        <div class="future-card">
+                            <h4>🛡️ Cuidarme para Cuidar</h4>
+                            <p>Entiendo que para servir bien debo estar bien yo mismo. Mantendré equilibrio entre trabajo y familia, seguiré formándome constantemente y cuidaré mi salud física y mental. Un profesional agotado no puede dar lo mejor de sí.</p>
+                        </div>
+                        
+                        <div class="future-card">
+                            <h4>🌟 Servir a los Demás</h4>
+                            <p>Como ingeniero de sistemas, desarrollaré soluciones tecnológicas accesibles para comunidades con recursos limitados, compartiré conocimiento libremente con quien lo necesite y promoveré ambientes laborales dignos y respetuosos donde todos puedan crecer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Referencias -->
+            <div class="references">
+                <h3>📖 Referencias Bibliográficas</h3>
+                <p>Corporación Universitaria Minuto de Dios. (2023). <em>Modelo Educativo Praxeológico</em>. Uniminuto.</p>
+                <p>Juliao Vargas, C. G. (2021). <em>La praxeología: Una teoría de la práctica</em>. Corporación Universitaria Minuto de Dios.</p>
+                <p>Corporación Universitaria Minuto de Dios. (2023). <em>Proyecto Educativo Institucional</em>. https://www.uniminuto.edu</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>⭐ INGENIERÍA DE SISTEMAS - UNIMINUTO ⭐</p>
+            <p>"Educación de calidad al alcance de todos"</p>
+        </div>
+    </div>
+</body>
+</html>
